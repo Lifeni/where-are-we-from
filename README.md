@@ -12,3 +12,4 @@
 
 * [origin.Lifeni.top](https://origin.lifeni.top)
 
+` PS：点击上面的链接会在当前窗口打开网页。`
