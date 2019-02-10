@@ -8,7 +8,7 @@
 
 ### 在哪可以找到？
 
-[GitHub](https://github.com/Lifeni/WhereAreWeFrom/)
+* [GitHub Pages](https://lifeni.github.io/WhereAreWeFrom)
 
-[GitHub Pages](https://lifeni.github.io/WhereAreWeFrom/)
+* [origin.Lifeni.top](https://origin.lifeni.top)
 
