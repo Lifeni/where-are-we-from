@@ -3,65 +3,53 @@
     <head>
         <meta charset="utf-8">
         <meta name="author" content="Lifeni"> 
-        <meta name="description" content="A 404 page.">
-                        
+        <meta name="description" content="404 page.">
+        
         <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
         <link rel="icon" href="favicon.ico" type="image/x-icon">
         
         <title>404 FILE NOT FOUND</title>
 
         <style>
-            html,body
+            html
             {
-                min-width: 800px;
-                margin-top: 0;
-                margin-left: 36px;
-                margin-right: 36px;
-                margin-bottom: 0;
+                min-width: 680px;
+                margin: 36px;
             }
-            h1
+            .footer_div_left
             {
-                font-size: 72px;
+                left: 36px;
+                bottom: 24px;  
+                position: fixed;
             }
-            h2
+            .footer_div_right
             {
-                font-size: 36px;
+                right: 36px;
+                bottom: 24px;  
+                position: fixed;
             }
-            p
+            .footer_link
             {
-                font-size: 18px;
-            }
-            .icp_text
-            {
-                font-size: 12px;
+                font-size: 12px; 
                 color: darkgrey;
                 text-decoration: none;
             }
         </style>
     </head>
 
-    <body>
-        <header>
-            <h1>404</h1>
-            <h2>FILE NOT FOUND.</h2>
-        </header>
-
-        <main>
-            <br>
-            <p>好像走错了吧。</p>
-            <br>
-        </main>
-
-        <footer>
-            <br>
-            
-            <div class="icp">
-                <a href="http://www.miitbeian.gov.cn/" target="_blank" class="icp_text">
-                    鲁ICP备19006085号
-                </a>
-            </div>
-            <br>
-            
-        </footer>
+    <body>    
+        <img src="https://lifeni.oss-cn-beijing.aliyuncs.com/404.jpg" alt="404 FILE NOT FOUND" width="200px">
+        <br><br>
+        <h1>好像走错了吧。</h1>
+        <div class="footer_div_left">
+            <a href="https://baike.baidu.com/item/404/4952904" target="_blank" class="footer_link" title="点击查看什么是 404 错误">
+                # 404 FILE NOT FOUND
+            </a>
+        </div>
+        <div class="footer_div_right">
+            <a href="http://www.miitbeian.gov.cn/" target="_blank" class="footer_link">
+                鲁ICP备19006085号
+            </a>
+        </div>
     </body>
 </html>
