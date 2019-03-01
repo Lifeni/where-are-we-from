@@ -19,6 +19,7 @@
 ## 在哪可以找到？
 
 * [GitHub Pages](https://lifeni.github.io/WhereAreWeFrom) 
+* [Gitee Pages](https://lifeni.gitee.io/wherearewefrom/)
 
 ## 项目有什么进展？
 * ` 2018.11.25 ` ` 提交申报书 `
