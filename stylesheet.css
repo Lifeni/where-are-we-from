@@ -3,6 +3,7 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    font-family: sans-serif;
 }
 
 html,body
@@ -21,6 +22,7 @@ html,body
 .container
 {
     position: relative;
+    height: 652px;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -68,6 +70,7 @@ html,body
     width: 960px;
     height: 100px;
     justify-content: center;
+    align-items: center;
     flex-direction: row;
 }
 
@@ -114,34 +117,29 @@ hr
 
 .start:hover
 {
-    margin: 0 40px;    
-    transition: all 0.3s ease-in-out;
+    margin: 0 40px;   
 }
 
 .image_github,.image_start,.image_music,.image_about,.image_qa
 {
     height: 100px;
-    margin: 0 5px;
+    margin: 0 15px;
     background-size: 75%;
     background-repeat: no-repeat;
     background-position: center;
     background-color: white;
     border: 0;
     border-radius: 8px;
-    transition: all 0.3s ease-in-out;
 }
 
 .text_github,.text_music,.text_about,.text_qa
 {
     width: 0;
-    height: 0px;
-    margin: 0 5px;
+    height: 0;
     font-size: 0px;
     opacity: 0;
     overflow: hidden;
-    border: 4px solid rgb(245,245,245);
-    border-radius: 32px;
-    transition: all 0.3s ease-in-out;
+    transition: all 0.3s ease-in-out; 
 }
 
 .image_github
@@ -153,15 +151,13 @@ hr
 .github:hover .text_github,.music:hover .text_music,.qa:hover .text_qa,.about:hover .text_about
 {
 
-    width: 140px;
-    height: 36px;
-    opacity: 1;
+    width: 120px;
+    height: 32px;
     font-size: 16px;
+    opacity: 1;
+    padding: 4px 0;
     background-color: rgb(245,245,245);
-    margin: 0 30px 0 0;
-    padding: 4px;
-    overflow: hidden;
-    transition: all 0.3s ease-in-out;
+    border-radius: 32px;
 }
 
 .image_music
@@ -173,13 +169,14 @@ hr
 .image_music
 {
     width: 80px;
-    background-image: url("image/music_off.png");    
+    background-image: url("image/music_off.png"); 
 }
 
 .image_start
 {
     width: 320px;
     background-image: url("image/button_start.png");
+    transition: width 0.3s ease-in-out;
 }
 
 .image_start:hover
