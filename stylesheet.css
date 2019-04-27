@@ -14,74 +14,102 @@ html,body
     */
     width: 100%;
     height: 100%;
-    min-width: 968px;
+    min-width: 1216px;
     min-height: 652px;
     text-align: center;
 }
 
 .container
 {
+    width: 100%;
+    height: 100%;
     position: relative;
-    height: 652px;
     display: flex;
     justify-content: center;
     align-items: center;
     flex-direction: column;
-    min-width: 100%;
-    min-height: 100%;
     background-image: url("image/gender_symbol2.png");
     background-repeat: repeat;
     background-size: 512px;
 }
 
-.mainBox
+.topBar
+{
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 96px;
+    padding: 24px;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: left;
+    flex-wrap: nowrap;
+}
+
+.topImage
+{
+    width: 36px;
+    height: 36px;
+}
+
+.github,.about
+{
+    margin: 12px;
+    text-decoration: none;
+    color: black;
+}
+
+.image404
 {
     width: 968px;
     height: 652px;
     background-color: white;
-    border: 4px solid rgb(245,245,245);
-    border-radius: 8px;
 }
 
-.image_404
-{
-    width: 968px;
-    height: 652px;
-}
-
-.displayArea,.messageArea
+.mainArea
 {
     display: flex;
+    flex-wrap: nowrap;
+    justify-content: space-around;
     align-items: center;
 }
 
 .displayArea
 {
     position: relative;
-    width: 960px;
-    height: 540px;
+    min-width: 960px;
+    min-height: 540px;
+    display: flex;
+    align-items: center;
     justify-content: center;
     flex-direction: column;
 }
 
-.messageArea
+.titleImage
+{
+    width: 800px;
+    height: auto;
+    margin: 32px 0;
+}
+
+
+.firstButton,.secondButton
 {
     position: relative;
-    width: 960px;
-    height: 100px;
-    justify-content: center;
-    align-items: center;
-    flex-direction: row;
+    height: 128px;
+    width: 128px;
+    cursor: pointer;
+    font-size: 20px;
 }
 
-.image_title
+.firstButtonImage,.secondButtonImage
 {
-    width: 640px;
-    height: 160px;
-    margin: 16px;
+    width: 128px;
+    height: 128px;
 }
 
-.text_tips
+.firstButtonText,.secondButtonText
 {
     margin: 8px;
     padding: 8px 16px;
@@ -89,110 +117,14 @@ html,body
     background-color: rgb(245,245,245);
 }
 
-.image_bottom
+.titleText
 {
-    position: absolute;
-    left: 0;
-    bottom: 0;
-    width: 960px;
-    height: 100px;
-}
-
-hr
-{
-    border: 0;
-    height: 4px;
-    margin: 0 16px;
-    background-color: rgb(245,245,245);
-}
-
-.github,.music,.start,.qa,.about
-{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    cursor: pointer;
-    transition: all 0.3s ease-in-out;
-}
-
-.start:hover
-{
-    margin: 0 40px;   
-}
-
-.image_github,.image_start,.image_music,.image_about,.image_qa
-{
-    height: 100px;
-    margin: 0 15px;
-    background-size: 75%;
-    background-repeat: no-repeat;
-    background-position: center;
-    background-color: white;
-    border: 0;
-    border-radius: 8px;
-}
-
-.text_github,.text_music,.text_about,.text_qa
-{
-    width: 0;
-    height: 0;
-    font-size: 0px;
-    opacity: 0;
-    overflow: hidden;
-    transition: all 0.3s ease-in-out; 
-}
-
-.image_github
-{
-    width: 80px;
-    background-image: url("image/github.png");
-}
-
-.github:hover .text_github,.music:hover .text_music,.qa:hover .text_qa,.about:hover .text_about
-{
-
-    width: 120px;
-    height: 32px;
-    font-size: 16px;
-    opacity: 1;
-    padding: 4px 0;
-    background-color: rgb(245,245,245);
+    font-size: 24px;
+    margin: 12px;
+    padding: 16px 24px;
     border-radius: 32px;
+    color: white;
+    background-color: rgb(244,81,30);
 }
 
-.image_music
-{
-    width: 80px;
-    background-image: url("image/music_off.png");
-}
 
-.image_music
-{
-    width: 80px;
-    background-image: url("image/music_off.png"); 
-}
-
-.image_start
-{
-    width: 320px;
-    background-image: url("image/button_start.png");
-    transition: width 0.3s ease-in-out;
-}
-
-.image_start:hover
-{
-    width: 360px;
-    background-image: url("image/button_start_hover.png");
-}
-
-.image_qa
-{
-    width: 80px;
-    background-image: url("image/qa.png");
-}
-
-.image_about
-{
-    width: 80px;
-    background-image: url("image/about.png");
-}
