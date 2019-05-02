@@ -16,6 +16,10 @@ body {
     min-width: 976px;
     min-height: 556px;
     text-align: center;
+    background-color: rgb(245, 245, 245);
+    background-image: url("../image/gender_symbol2.png");
+    background-repeat: repeat;
+    background-size: 512px;
 }
 
 .container {
@@ -26,27 +30,23 @@ body {
     justify-content: center;
     align-items: center;
     flex-direction: column;
-    background-color: rgb(245,245,245);
-    background-image: url("../image/gender_symbol2.png");
-    background-repeat: repeat;
-    background-size: 512px;
 }
 
+
+.iconButton {
+    width: 32px;
+    height: 32px;
+    opacity: 0;
+    margin-right: 16px;
+    color: black;
+    transition: all 0.3s cubic-bezier(.25, .8, .25, 1);
+}
 
 .iconImage {
     width: 32px;
     height: 32px;
     opacity: 0;
     transition: all 0.3s cubic-bezier(.25, .8, .25, 1);
-}
-
-.github,
-.about {
-    width: 32px;
-    height: 32px;
-    margin-right: 16px;
-    text-decoration: none;
-    color: black;
 }
 
 .image404 {
@@ -92,7 +92,7 @@ body {
     justify-content: center;
     width: 64px;
     height: 100%;
-    box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
     position: absolute;
     background-color: white;
     transition: all 0.3s cubic-bezier(.25, .8, .25, 1);
@@ -102,24 +102,22 @@ body {
     float: left;
     left: 0;
     border-radius: 0 8px 8px 0;
-    justify-content: center;
 }
 
 .rightCard {
     float: right;
     right: 0;
     border-radius: 8px 0 0 8px;
-    justify-content: center;
 }
 
-.leftCardText{
+.leftCardText {
     font-size: 24px;
     opacity: 0;
     margin-right: 16px;
     transition: all 0.3s cubic-bezier(.25, .8, .25, 1);
 }
 
-.rightCardText{
+.rightCardText {
     font-size: 24px;
     opacity: 0;
     margin-left: 16px;
@@ -150,7 +148,6 @@ body {
 .rightArea {
     float: right;
     right: 0px;
-
 }
 
 
@@ -175,11 +172,12 @@ body {
     width: 172px;
 }
 
-.leftArea:hover .iconImage{
+.leftArea:hover .iconButton,
+.leftArea:hover .iconImage {
     opacity: 1;
 }
 
-.leftArea:hover .leftCardText{
+.leftArea:hover .leftCardText {
     opacity: 1;
 }
 
@@ -198,7 +196,7 @@ body {
     width: 172px;
 }
 
-.rightArea:hover .rightCardText{
+.rightArea:hover .rightCardText {
     opacity: 1;
 }
 
@@ -210,12 +208,13 @@ body {
     padding: 16px;
     background-color: white;
     border-radius: 128px;
-    box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23);
     transition: all 0.3s cubic-bezier(.25, .8, .25, 1);
     z-index: 1000;
 }
 
-.leftButtonImage,.rightButtonImage{
+.leftButtonImage,
+.rightButtonImage {
     width: 32px;
     height: 32px;
     transition: all 0.3s cubic-bezier(.25, .8, .25, 1);
