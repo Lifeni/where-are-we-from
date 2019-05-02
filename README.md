@@ -1,10 +1,18 @@
-# WhereAreWeFrom 我们从哪来
+# “我们从哪来”性教育网站
+
+> ⚠ 本网站正在开发中，功能尚不完善。
+>
+> ❤ 欢迎提交 Issue，或者 [发送邮件](mailto:liangfengning@foxmail.com])。
+
+
 
 ## 这是什么？
 
 “我们从哪来” —— 一个性教育网站，
 
 来自哈尔滨工程大学2018级本科生引导型立项。
+
+
 
 ## 我们的目标是什么？
 
@@ -14,10 +22,13 @@
 
 > 可应用于学校、家长、老师、朋友等对青少年的性教育参考或辅助网站。
 
+
+
 ## 在哪可以找到？
 
 * [GitHub Pages](https://lifeni.github.io/WhereAreWeFrom) 
-* [Gitee Pages](https://lifeni.gitee.io/wherearewefrom/)
+
+
 
 ## 项目有什么进展？
 
