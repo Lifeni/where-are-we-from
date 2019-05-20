@@ -3,23 +3,30 @@
     padding: 0;
     box-sizing: border-box;
     font-family: sans-serif;
+
+    outline: none;
 }
 
 html,
 body {
-    /* 960*540 16:9 -- 1920*1080
-       960*100      -- 1920*200  -- 640*200*3
-       960*640 3:2
+    /* 
+        960*540 16:9 -- 1920*1080
+        960*100      -- 1920*200  -- 640*200*3
+        960*640 3:2
     */
     width: 100%;
     height: 100%;
     min-width: 976px;
     min-height: 556px;
     text-align: center;
-    background-color: rgb(245, 245, 245);
-    background-image: url("../image/gender_symbol2.png");
+}
+
+body {
+    background-color: rgba(245, 245, 245, 1);
+    background-image: url("../image/Background/gender_symbol2.png");
     background-repeat: repeat;
     background-size: 512px;
+    overflow: hidden;
 }
 
 .container {
@@ -29,9 +36,88 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
+    flex-wrap: nowrap;
     flex-direction: column;
+    /* background-color: rgba(0, 0, 0, 0.6); */
 }
 
+.blackMask {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    background: rgba(0, 0, 0, 0);
+    transition: all 1s cubic-bezier(.25, .8, .25, 1);
+
+}
+
+.displayArea {
+    position: relative;
+    width: 960px;
+    height: 540px;
+    border-radius: 8px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.32);
+    background-color: white;
+    /* background-image: url("../image/load.jpg");
+    background-repeat: no-repeat;
+    background-size: 100%; */
+    transition: all 0.3s cubic-bezier(.25, .8, .25, 1);
+}
+
+.homePage,
+.contentPage,
+.linkPage {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    border-radius: 8px;
+    background-color: white;
+    transition: all 0.9s cubic-bezier(.25, .8, .25, 1);
+}
+
+.contentPage,
+.linkPage {
+    opacity: 0;
+    display: none;
+}
+
+.contentImage {
+    width: 100%;
+    height: 100%;
+    border-radius: 8px;
+    pointer-events: none;
+}
+
+.titleImage {
+    width: 640px;
+    height: auto;
+    pointer-events: none;
+}
+
+.titleText {
+    font-size: 16px;
+    margin: 16px;
+    padding: 8px 16px;
+    border-radius: 32px;
+    color: white;
+    background-color: rgb(244, 81, 30);
+}
+
+.bottomImage {
+    width: 960px;
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    pointer-events: none;
+}
 
 .iconButton {
     width: 32px;
@@ -45,164 +131,195 @@ body {
 .iconImage {
     width: 32px;
     height: 32px;
+    pointer-events: none;
     opacity: 0;
     transition: all 0.3s cubic-bezier(.25, .8, .25, 1);
 }
 
-.image404 {
-    width: auto;
-    height: 100%;
-    background-color: white;
-}
-
-.mainArea {
-    width: 100%;
-    height: 100%;
-    display: flex;
-    flex-wrap: nowrap;
-    justify-content: center;
-    align-items: center;
-}
-
-.displayArea {
-    position: relative;
-    width: 960px;
-    height: 540px;
+.leftCard {
+    position: absolute;
+    left: -210px;
+    top: 48px;
+    width: 204px;
+    height: 332px;
+    padding: 16px;
+    opacity: 0;
     display: flex;
     align-items: center;
-    justify-content: center;
+    justify-content: space-around;
     flex-direction: column;
-    border-radius: 8px;
-    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.32);
     background-color: white;
+    z-index: 1000;
+    border-radius: 0 8px 8px 0;
+    transition: all 0.7s cubic-bezier(.25, .8, .25, 1);
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
+}
+
+.cardChapter {
+    font-size: 24px;
+}
+
+.cardTitle {
+    font-size: 28px;
+    font-weight: bold;
+    padding: 8px 16px;
+    border: 8px rgba(245, 245, 245, 1);
+    background-color: rgba(245, 245, 245, 1);
+    border-radius: 8px;
+
+}
+
+.cardPoint {
+    font-size: 16px;
+    line-height: 32px;
+}
+
+
+.leftButton,
+.rightButton {
+
+    flex-direction: column;
+    position: absolute;
+    top: center;
+    height: 540px;
+    width: 0px;
+    font-size: 20px;
     transition: all 0.3s cubic-bezier(.25, .8, .25, 1);
+    z-index: 1000;
 }
 
-
-.titleImage {
-    width: 640px;
-    height: auto;
+.leftButton {
+    float: left;
+    left: 0px;
 }
 
-.leftCard,
-.rightCard {
+.rightButton {
+    float: right;
+    right: 0px;
+}
+
+.leftButton:hover,
+.rightButton:hover {
+    width: 200px;
+}
+
+.leftButton:hover .leftCard {
+    left: 0px;
+    box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
+}
+
+.leftButton:hover .leftButtonIcon,
+.rightButton:hover .rightButtonIcon,
+.leftButton:hover .leftButtonBox,
+.rightButton:hover .rightButtonBox {
+    box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
+}
+
+.leftButton:hover .leftButtonIcon {
+    left: 140px;
+}
+
+.leftButton:hover .leftButtonIconImage {
+    transform-origin: center;
+    transform: rotate(180deg);
+    /* opacity: 0; */
+}
+
+.leftButton:hover .leftButtonBox {
+    width: 172px;
+}
+
+.leftButton:hover .iconButton,
+.leftButton:hover .iconImage {
+    opacity: 1;
+}
+
+.leftButton:hover .leftButtonText {
+    opacity: 1;
+}
+
+.rightButton:hover .rightButtonIcon {
+    right: 140px;
+}
+
+.rightButton:hover .rightButtonIconImage {
+    transform-origin: center;
+    transform: rotate(180deg);
+    /* opacity: 0; */
+}
+
+.rightButton:hover .rightSmallButtonIconImage {
+    transform-origin: center;
+    transform: rotate(360deg);
+    /* opacity: 0; */
+}
+
+.rightButton:hover .rightButtonBox {
+    width: 172px;
+}
+
+.rightButton:hover .rightButtonText {
+    opacity: 1;
+}
+
+.rightButton:hover .rightSmallButton {
+    right: 0;
+    box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
+}
+
+.leftButtonBox,
+.rightButtonBox {
+    position: absolute;
+    bottom: 48px;
     display: flex;
     flex-direction: row;
     align-items: center;
     justify-content: center;
+    cursor: pointer;
     width: 64px;
-    height: 100%;
+    height: 64px;
+    border: 0;
+    opacity: 1;
+    text-decoration: none;
+    color: black;
     box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
     position: absolute;
     background-color: white;
     transition: all 0.3s cubic-bezier(.25, .8, .25, 1);
 }
 
-.leftCard {
+.leftButtonBox {
     float: left;
     left: 0;
     border-radius: 0 8px 8px 0;
 }
 
-.rightCard {
+.rightButtonBox {
     float: right;
     right: 0;
     border-radius: 8px 0 0 8px;
 }
 
-.leftCardText {
-    font-size: 24px;
-    opacity: 0;
-    margin-right: 16px;
-    transition: all 0.3s cubic-bezier(.25, .8, .25, 1);
-}
-
-.rightCardText {
-    font-size: 24px;
-    opacity: 0;
-    margin-left: 16px;
-    transition: all 0.3s cubic-bezier(.25, .8, .25, 1);
-}
-
-.leftArea,
-.rightArea {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    position: absolute;
-    top: 70%;
-    height: 64px;
-    width: 64px;
+.leftButtonText,
+.rightButtonText {
     font-size: 20px;
-    transition: all 0.3s cubic-bezier(.25, .8, .25, 1);
-    z-index: 1000;
+    opacity: 0;
+    transition: all 0.1s cubic-bezier(.25, .8, .25, 1);
 }
 
-.leftArea {
-    float: left;
-    left: 0px;
+.leftButtonText {
 
+    margin-right: 16px;
 }
 
-.rightArea {
-    float: right;
-    right: 0px;
+.rightButtonText {
+    margin-left: 16px;
 }
 
-
-.leftArea:hover .leftButton,
-.rightArea:hover .rightButton,
-.leftArea:hover .leftCard,
-.rightArea:hover .rightCard {
-    box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
-}
-
-.leftArea:hover .leftButton {
-    left: 140px;
-}
-
-.leftArea:hover .leftButtonImage {
-    transform-origin: center;
-    transform: rotate(180deg);
-    /* opacity: 0; */
-}
-
-.leftArea:hover .leftCard {
-    width: 172px;
-}
-
-.leftArea:hover .iconButton,
-.leftArea:hover .iconImage {
-    opacity: 1;
-}
-
-.leftArea:hover .leftCardText {
-    opacity: 1;
-}
-
-
-.rightArea:hover .rightButton {
-    right: 140px;
-}
-
-.rightArea:hover .rightButtonImage {
-    transform-origin: center;
-    transform: rotate(180deg);
-    /* opacity: 0; */
-}
-
-.rightArea:hover .rightCard {
-    width: 172px;
-}
-
-.rightArea:hover .rightCardText {
-    opacity: 1;
-}
-
-.leftButton,
-.rightButton {
+.leftButtonIcon,
+.rightButtonIcon {
     position: absolute;
+    bottom: 48px;
     width: 64px;
     height: 64px;
     padding: 16px;
@@ -213,28 +330,72 @@ body {
     z-index: 1000;
 }
 
-.leftButtonImage,
-.rightButtonImage {
+.leftButtonIconImage,
+.rightButtonIconImage {
     width: 32px;
     height: 32px;
     transition: all 0.3s cubic-bezier(.25, .8, .25, 1);
 }
 
-.leftButton {
+.leftButtonIcon {
     float: left;
-    left: 32px;
+    left: 30px;
 }
 
-.rightButton {
+.rightButtonIcon {
     float: right;
-    right: 32px;
+    right: 30px;
 }
 
-.titleText {
-    font-size: 16px;
-    margin: 16px;
-    padding: 8px 16px;
-    border-radius: 32px;
-    color: white;
-    background-color: rgb(244, 81, 30);
+.rightSmallButton {
+    position: absolute;
+    right: -210px;
+    width: 180px;
+    height: 64px;
+    opacity: 0;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    background-color: white;
+    z-index: 1000;
+    border-radius: 32px 0 0 32px;
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
+
+}
+
+.rightSmallButtonIconImage {
+    width: 24px;
+    height: 24px;
+}
+
+.bigText {
+    font-size: 240px;
+    font-family: 'Courier New', Courier, monospace;
+}
+
+.normalText{
+    font-size: 48px;
+    font-family: 'Courier New', Courier, monospace;
+}
+
+.smallText {
+    font-size: 24px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+#backHome {
+    top: 94px;
+    transition: all 0.5s cubic-bezier(.25, .8, .25, 1);
+}
+
+#getHelp {
+    top: 178px;
+    transition: all 0.6s cubic-bezier(.25, .8, .25, 1);
+}
+
+#music {
+    top: 262px;
+    transition: all 0.7s cubic-bezier(.25, .8, .25, 1);
 }

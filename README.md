@@ -30,8 +30,31 @@
 
 
 
+## 项目的结构？
+
+- WhereAreWeFrom
+  - ( content ) - 关于页面 和 知识页面
+  - ( css ) - CSS 文件
+  - ( image )
+    - ( [数字] ) - 每个章节的图片
+    - ( Background ) - 背景图片
+    - ( Icon ) - 按钮小图标
+    - ( Old ) - 以前用过的图片
+  - ( javascript ) - JS 文件
+  - ( markdown ) - 正在编写的 Markdown 文件
+  - 404.html - 404 页面
+  - favicon.ico - 网页图标
+  - index.html - 网页主要文件
+  - LICENSE - 开源协议：MIT
+  - README.md - 本文档
+
+注：带 ( ) 的是文件夹。
+
+
+
 ## 项目有什么进展？
 
 * ` 2018.11.25 ` ` 提交申报书 `
 * ` 2019.03.01 ` ` 重写代码 `
 * ` 2019.04.27 ` ` 完善网站规划 `
+* `2019.05.21 ` ` 完成主体设计 `

@@ -7,45 +7,109 @@
 	<link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
 	<link rel="icon" href="favicon.ico" type="image/x-icon">
 	<link rel="stylesheet" href="css/main.css" type="text/css">
+
 	<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=1" name="viewport">
-	<script>/*垃圾 chrome，transition 的 bug 这么多年没修*/</script>
+
+	<script>
+
+	// 这句是用来修复 Chrome 中一个有关 transition 的 BUG
+	// 参见：https://stackoverflow.com/questions/40197386/css-transition-being-fired-upon-load-with-link-and-input-elements-chrome
+
+	</script>
 
 	<title>我们从哪来？</title>
 </head>
 
 <body>
 	<div class="container">
-		<div class="mainArea">
-			<div class="leftArea">
-				<div class="leftCard">
-					<a class="iconButton" href="https://github.com/Lifeni/WhereAreWeFrom" target="_blank">
-						<img src="image/github.png" alt="Github" class="iconImage">
-					</a>
-					<a class="iconButton" href="content/关于这个网站.html">
-						<img src="image/about.png" alt="About" class="iconImage">
-					</a>
-				</div>
-				<div class="leftButton">
-					<img src="image/baseline_more_horiz_black_24dp.png" alt="more" class="leftButtonImage">
-				</div>
+
+		<div class="blackMask" id="blackMask"></div>
+
+		<div class="leftButton" id="leftButton">
+
+			<button class="leftButtonBox" id="infoButton">
+				<span class="leftButtonText">关于本章</span>
+			</button>
+
+			<button class="leftButtonBox" id="backButton">
+				<span class="leftButtonText">返回</span>
+			</button>
+
+			<div class="leftCard" id="leftCard">
+				<span class="cardChapter" id="chapter"></span>
+				<span class="cardTitle" id="title"></span>
+				<div class="cardPoint" id="point"></div>
 			</div>
-			<div class="displayArea">
-				<img src="image/home_title.jpg" alt="我们从哪来" class="titleImage">
 
-				<p class="titleText">⚠ 注意：本网站正在开发中，功能尚不完善</p>
+			<button class="leftButtonBox" id="linkButton">
+				<a class="iconButton" href="https://github.com/Lifeni/WhereAreWeFrom" target="_blank" id="githubButton"
+					title="本网站的 Github 页面">
+					<img src="image/Icon/baseline_github_black_24dp.png" alt="Github" class="iconImage">
+				</a>
+				<a class="iconButton" href="content/aboutPage.html" id="aboutButton" title="本网站的 关于 页面">
+					<img src="image/Icon/baseline_info_black_24dp.png" alt="About" class="iconImage">
+				</a>
+			</button>
+
+			<div class="leftButtonIcon" id="leftIcon">
+				<img src="image/Icon/baseline_menu_black_24dp.png" alt="more" class="leftButtonIconImage"
+					id="leftIconImage">
 			</div>
 
-			<div class="rightArea">
-				<div class="rightCard">
-					<p class="rightCardText">开始</p>
-				</div>
-				<div class="rightButton">
-					<img src="image/baseline_arrow_forward_black_24dp.png" alt="next" class="rightButtonImage">
-				</div>
+		</div>
 
+		<div class="displayArea">
+			<iframe src="about:blank" frameborder="0" class="linkPage" id="linkPage" sandbox="allow-scripts">
+				这是网站内容的主要部分，如果无法加载，请检查你网络，或者刷新页面。
+			</iframe>
+
+			<div class="contentPage" id="contentPage">
+				<img src="image/0/0-01.jpg" alt="0-00" class="contentImage">
+			</div>
+
+
+			<div class="homePage" id="homePage">
+				<img src="image/home_title.jpg" alt=" " class="titleImage">
+				<div class="titleText">⚠ 注意：本网站正在开发中，功能尚不完善</div>
+				<img src="image/Background/01.png" alt=" " class="bottomImage">
+			</div>
+
+		</div>
+
+		<div class="rightButton" id="rightButton">
+			<div class="rightSmallButton" id="backHome">
+				<img src="image/Icon/baseline_home_black_24dp.png" alt="next" class="rightSmallButtonIconImage">
+				<span class="rightButtonText">回到首页</span>
+			</div>
+
+			<div class="rightSmallButton" id="getHelp">
+				<img src="image/Icon/baseline_help_black_24dp.png" alt="next" class="rightSmallButtonIconImage">
+				<span class="rightButtonText">获取帮助</span>
+			</div>
+
+			<div class="rightSmallButton" id="music">
+				<img src="image/Icon/baseline_music_off_black_24dp.png" alt="next" class="rightSmallButtonIconImage">
+				<span class="rightButtonText">关闭音乐</span>
+			</div>
+
+			<button class="rightButtonBox" id="nextButton">
+				<span class="rightButtonText">下一章</span>
+			</button>
+
+
+
+			<button class="rightButtonBox" id="startButton">
+				<span class="rightButtonText">开始</span>
+			</button>
+
+			<div class="rightButtonIcon" id="rightIcon">
+				<img src="image/Icon/baseline_arrow_forward_black_24dp.png" alt="next" class="rightButtonIconImage"
+					id="rightIconImage">
 			</div>
 		</div>
 	</div>
+	<!-- <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script> -->
+	<script src="javascript/main.js" async></script>
 </body>
 
 </html>
