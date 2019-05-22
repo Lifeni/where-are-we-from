@@ -30,6 +30,8 @@ let rightIconImage = document.getElementById("rightIconImage");
 let leftIcon = document.getElementById("leftIcon");
 let rightIcon = document.getElementById("rightIcon");
 
+let contentImage=document.getElementById("contentImage");
+
 let aboutFlag = 0;
 
 function homeTwoButtonTrue() {
@@ -161,6 +163,7 @@ start.onclick = function () {
 
     // content
     showContentPage();
+    chapter1();
 }
 
 about.onclick = function () {
@@ -212,4 +215,19 @@ backHome.onclick = function () {
 
     //content
     showHomePage();
+}
+
+function chapter1(){
+    contentImage.setAttribute("src","image/0/0-00.jpg");
+    setTimeout(() => {
+        contentImage.setAttribute("src","image/0/0-01.jpg");
+        setTimeout(() => {
+            contentImage.setAttribute("src","image/0/0-02.jpg");
+            setTimeout(() => {
+                contentImage.setAttribute("src","image/0/0-03.jpg");
+            }, 1000);
+
+        }, 1000);
+    }, 1000);
+
 }
