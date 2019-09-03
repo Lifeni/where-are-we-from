@@ -7,8 +7,8 @@ let person = document.querySelector(".person"),
     age = document.querySelector(".age"),
     land = document.querySelector(".land"),
     body = document.querySelector("body");
-person.src = "/image/SVG/" + list[num] + ".svg";
-age.src = "/image/SVG/age-" + num + ".svg";
+person.src = "../image/SVG/" + list[num] + ".svg";
+age.src = "../image/SVG/age-" + num + ".svg";
 land.style.width = long[num] + "px";
 body.style.width = long[num] + "px";
 
@@ -23,13 +23,13 @@ for (let i = 0; i < event.length; i++) {
 
 window.onkeydown = function (e) {
     let title = document.querySelector(".title");
-    title.src = "/image/SVG/title-" + (num + 1) + ".svg";
+    title.src = "../image/SVG/title-" + (num + 1) + ".svg";
     if (e.keyCode == 39 || e.keyCode == 68) { // --> D
         let left = person.offsetLeft;
         let right = long[num] - left - person.width;
         if (right > 200) {
             person.style.left = left + 100 + "px";
-            person.src = "/image/SVG/" + list[num] + "-right.svg";
+            person.src = "../image/SVG/" + list[num] + "-right.svg";
         } else {
             person.style.right = "200px";
         }
@@ -43,7 +43,7 @@ window.onkeydown = function (e) {
         let right = long[num] - left - person.width;
         if (left > 50) {
             person.style.left = left - 100 + "px";
-            person.src = "/image/SVG/" + list[num] + "-left.svg";
+            person.src = "../image/SVG/" + list[num] + "-left.svg";
         } else {
             person.style.left = "50px";
         }
@@ -56,13 +56,13 @@ window.onkeydown = function (e) {
     for (let i = 0; i < event.length; i++) {
         if (personPosition > eventRange[i][0] && personPosition < eventRange[i][1]) {
             event[i].style.transform = "scale(1.1)";
-            event[i].src = "/image/SVG/0" + (num + 1) + "-" + (i + 1) + "-hover.svg";
+            event[i].src = "../image/SVG/0" + (num + 1) + "-" + (i + 1) + "-hover.svg";
             if (e.keyCode == 32) {
                 event[i].addEventListener("click", showText(i));
             }
         } else {
             event[i].style.transform = "scale(1)";
-            event[i].src = "/image/SVG/0" + (num + 1) + "-" + (i + 1) + ".svg";
+            event[i].src = "../image/SVG/0" + (num + 1) + "-" + (i + 1) + ".svg";
         }
     }
 }
@@ -79,9 +79,9 @@ function showText(num) {
 
 window.onkeyup = function (e) {
     if (e.keyCode == 39 || e.keyCode == 68) { // --> D
-        person.src = "/image/SVG/" + list[num] + ".svg";
+        person.src = "../image/SVG/" + list[num] + ".svg";
     }
     if (e.keyCode == 37 || e.keyCode == 65) { // <-- A
-        person.src = "/image/SVG/" + list[num] + ".svg";
+        person.src = "../image/SVG/" + list[num] + ".svg";
     }
 }

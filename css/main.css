@@ -106,7 +106,7 @@ img {
     height: 40px;
     border: 0;
     background-color: white;
-    background-image: url(/image/SVG/close.svg);
+    background-image: url(../image/SVG/close.svg);
 }
 
 .text {
