@@ -1,233 +1,87 @@
-let github = document.getElementById("githubButton");
-let about = document.getElementById("aboutButton");
-let link = document.getElementById("linkButton");
-let info = document.getElementById("infoButton");
-let start = document.getElementById("startButton");
-let next = document.getElementById("nextButton");
-let back = document.getElementById("backButton");
+"use strict";
 
-let chapter = document.getElementById("chapter");
-let title = document.getElementById("title");
-let point = document.getElementById("point");
+const list = ["child", "teenage", "lovers", "adult"],
+    long = [1500, 1500, 1500, 1500],
+    num = window.location.href.slice(-7, -5) - 1;
+let person = document.querySelector(".person"),
+    age = document.querySelector(".age"),
+    land = document.querySelector(".land"),
+    body = document.querySelector("body");
+person.src = "/image/SVG/" + list[num] + ".svg";
+age.src = "/image/SVG/age-" + num + ".svg";
+land.style.width = long[num] + "px";
+body.style.width = long[num] + "px";
 
-let backHome = document.getElementById("backHome");
-let getHelp = document.getElementById("getHelp");
-let music = document.getElementById("music");
-
-let leftCard = document.getElementById("leftCard");
-
-let mask = document.getElementById("blackMask");
-
-let linkPage = document.getElementById("linkPage");
-let homePage = document.getElementById("homePage");
-let contentPage = document.getElementById("contentPage");
-
-let leftButton = document.getElementById("leftButton");
-let rightButton = document.getElementById("rightButton");
-
-let leftIconImage = document.getElementById("leftIconImage");
-let rightIconImage = document.getElementById("rightIconImage");
-let leftIcon = document.getElementById("leftIcon");
-let rightIcon = document.getElementById("rightIcon");
-
-let contentImage=document.getElementById("contentImage");
-
-let aboutFlag = 0;
-
-function homeTwoButtonTrue() {
-    start.style.opacity = "1";
-    link.style.opacity = "1";
-    start.style.display = "flex";
-    link.style.display = "flex";
-    mask.style.background = "rgba(0, 0, 0, 0)";
+let event = document.querySelectorAll(".event");
+let eventRange = [
+    []
+];
+for (let i = 0; i < event.length; i++) {
+    eventRange[i][0] = event[i].offsetLeft - 200;
+    eventRange[i][1] = event[i].offsetLeft + event[i].width + 200;
 }
 
-function homeTwoButtonFalse() {
-    start.style.opacity = "0";
-    link.style.opacity = "0";
-    start.style.display = "none";
-    link.style.display = "none";
-}
+window.onkeydown = function (e) {
+    let title = document.querySelector(".title");
+    title.src = "/image/SVG/title-" + (num + 1) + ".svg";
+    if (e.keyCode == 39 || e.keyCode == 68) { // --> D
+        let left = person.offsetLeft;
+        let right = long[num] - left - person.width;
+        if (right > 200) {
+            person.style.left = left + 100 + "px";
+            person.src = "/image/SVG/" + list[num] + "-right.svg";
+        } else {
+            person.style.right = "200px";
+        }
 
-function contentTwoButtonTrue() {
-    info.style.opacity = "1";
-    next.style.opacity = "1";
-    info.style.display = "flex";
-    next.style.display = "flex";
+        let screenWidth = window.innerWidth;
+        if (left + 400 > screenWidth)
+            document.documentElement.scrollLeft += 200;
+    }
+    if (e.keyCode == 37 || e.keyCode == 65) { // <-- A
+        let left = person.offsetLeft;
+        let right = long[num] - left - person.width;
+        if (left > 50) {
+            person.style.left = left - 100 + "px";
+            person.src = "/image/SVG/" + list[num] + "-left.svg";
+        } else {
+            person.style.left = "50px";
+        }
+        let screenWidth = window.innerWidth;
+        if (right + 400 > screenWidth)
+            document.documentElement.scrollLeft -= 200;
+    }
 
-    leftCard.style.opacity = "1";
-    leftCard.style.display = "flex";
-
-    backHome.style.opacity = "1";
-    getHelp.style.opacity = "1";
-    music.style.opacity = "1";
-    backHome.style.display = "flex";
-    getHelp.style.display = "flex";
-    music.style.display = "flex";
-    mask.style.background = "rgba(0, 0, 0, 0.9)";
-}
-
-function contentTwoButtonFalse() {
-    info.style.opacity = "0";
-    next.style.opacity = "0";
-    info.style.display = "none";
-    next.style.display = "none";
-
-    leftCard.style.opacity = "0";
-    leftCard.style.display = "none";
-
-    backHome.style.opacity = "0";
-    getHelp.style.opacity = "0";
-    music.style.opacity = "0";
-    backHome.style.display = "none";
-    getHelp.style.display = "none";
-    music.style.display = "none";
-}
-
-function backButtonTrue() {
-    back.style.opacity = "1";
-    back.style.display = "flex";
-}
-
-function backButtonFalse() {
-    back.style.opacity = "0";
-    back.style.display = "none";
-}
-
-function showHomePage() {
-    setTimeout(() => {
-        homePage.style.opacity = "1";
-    }, 100);
-    homePage.style.display = "flex";
-
-    contentPage.style.opacity = "0";
-    contentPage.style.display = "none";
-
-    linkPage.style.opacity = "0";
-    linkPage.style.display = "none";
-}
-
-function showContentPage() {
-    homePage.style.opacity = "0";
-    homePage.style.display = "none";
-
-    setTimeout(() => {
-        contentPage.style.opacity = "1";
-    }, 100);
-    contentPage.style.display = "flex";
-
-    linkPage.style.opacity = "0";
-    linkPage.style.display = "none";
-}
-
-function showLinkPage() {
-    homePage.style.opacity = "0";
-    homePage.style.display = "none";
-
-    contentPage.style.opacity = "0";
-    contentPage.style.display = "none";
-
-    setTimeout(() => {
-        linkPage.style.opacity = "1";
-    }, 100);
-    linkPage.style.display = "flex";
-
-}
-
-window.onload = function () {
-
-    //button
-
-    homeTwoButtonTrue();
-    contentTwoButtonFalse();
-    backButtonFalse();
-
-    //content
-    showHomePage();
-
-}
-
-start.onclick = function () {
-
-    // button    
-    leftIconImage.setAttribute("src", "image/Icon/baseline_more_horiz_black_24dp.png");
-
-    homeTwoButtonFalse();
-    contentTwoButtonTrue();
-    backButtonFalse();
-
-    // text
-    chapter.innerHTML = "序章";
-    title.innerHTML = "我们从哪来";
-    point.innerHTML = "# 引出故事 <br> # 操作引导";
-
-    // content
-    showContentPage();
-    chapter1();
-}
-
-about.onclick = function () {
-
-    // button  
-    leftIconImage.setAttribute("src", "image/Icon/baseline_arrow_back_black_24dp.png");
-
-    homeTwoButtonFalse();
-    contentTwoButtonFalse();
-    backButtonTrue();
-
-    aboutFlag = 1;
-    rightButton.style.opacity = "0";
-
-    // content
-    linkPage.setAttribute("src", "content/aboutPage.html");
-
-    showLinkPage();
-
-    return false;
-}
-
-back.onclick = function () {
-
-    if (aboutFlag === 1) {
-        //button
-        leftIconImage.setAttribute("src", "image/Icon/baseline_menu_black_24dp.png");
-
-        homeTwoButtonTrue();
-        contentTwoButtonFalse();
-        backButtonFalse();
-
-        aboutFlag = 0;
-        rightButton.style.opacity = "1";
-
-        // content
-        showHomePage();
+    let personPosition = person.offsetLeft + (person.width * 0.5);
+    for (let i = 0; i < event.length; i++) {
+        if (personPosition > eventRange[i][0] && personPosition < eventRange[i][1]) {
+            event[i].style.transform = "scale(1.1)";
+            event[i].src = "/image/SVG/0" + (num + 1) + "-" + (i + 1) + "-hover.svg";
+            if (e.keyCode == 32) {
+                event[i].addEventListener("click", showText(i));
+            }
+        } else {
+            event[i].style.transform = "scale(1)";
+            event[i].src = "/image/SVG/0" + (num + 1) + "-" + (i + 1) + ".svg";
+        }
     }
 }
 
-backHome.onclick = function () {
-
-    //button
-    leftIconImage.setAttribute("src", "image/Icon/baseline_menu_black_24dp.png");
-
-    homeTwoButtonTrue();
-    contentTwoButtonFalse();
-    backButtonFalse();
-
-    //content
-    showHomePage();
+function showText(num) {
+    let card = document.querySelectorAll(".card");
+    card[num].style.left = document.body.scrollLeft;
+    card[num].style.display = "flex";
+    let close = document.querySelectorAll(".close");
+    close[num].addEventListener("click", function () {
+        card[num].style.display = "none";
+    })
 }
 
-function chapter1(){
-    contentImage.setAttribute("src","image/0/0-00.jpg");
-    setTimeout(() => {
-        contentImage.setAttribute("src","image/0/0-01.jpg");
-        setTimeout(() => {
-            contentImage.setAttribute("src","image/0/0-02.jpg");
-            setTimeout(() => {
-                contentImage.setAttribute("src","image/0/0-03.jpg");
-            }, 1000);
-
-        }, 1000);
-    }, 1000);
-
+window.onkeyup = function (e) {
+    if (e.keyCode == 39 || e.keyCode == 68) { // --> D
+        person.src = "/image/SVG/" + list[num] + ".svg";
+    }
+    if (e.keyCode == 37 || e.keyCode == 65) { // <-- A
+        person.src = "/image/SVG/" + list[num] + ".svg";
+    }
 }
